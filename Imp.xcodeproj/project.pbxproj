@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					E3C9F1601F3335790058AFC1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 42K4QGQ7K4;
+						DevelopmentTeam = AZ59WCD7SF;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
@@ -203,7 +203,7 @@
 					};
 					E3C9F1741F3336370058AFC1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 42K4QGQ7K4;
+						DevelopmentTeam = AZ59WCD7SF;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
@@ -393,7 +393,7 @@
 				CODE_SIGN_ENTITLEMENTS = Imp/Imp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 42K4QGQ7K4;
+				DEVELOPMENT_TEAM = AZ59WCD7SF;
 				INFOPLIST_FILE = Imp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = shalamowww.Imp;
@@ -410,7 +410,7 @@
 				CODE_SIGN_ENTITLEMENTS = Imp/Imp.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 42K4QGQ7K4;
+				DEVELOPMENT_TEAM = AZ59WCD7SF;
 				INFOPLIST_FILE = Imp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = shalamowww.Imp;
@@ -425,7 +425,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Imp Tools/Imp_Tools.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 42K4QGQ7K4;
+				DEVELOPMENT_TEAM = AZ59WCD7SF;
 				INFOPLIST_FILE = "Imp Tools/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -442,7 +442,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Imp Tools/Imp_Tools.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 42K4QGQ7K4;
+				DEVELOPMENT_TEAM = AZ59WCD7SF;
 				INFOPLIST_FILE = "Imp Tools/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;

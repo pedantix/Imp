@@ -15,6 +15,7 @@ class Constants {
     static let ignoreOwnHeader = "ignore_own_header"
     static let ignoreFrameworks = "ignore_frameworks_section"
     static let ignoreDuplicates = "ignore_duplicates"
+    static let frameworksAboveHeaders = "framework_above_headers"
   }
   
 }

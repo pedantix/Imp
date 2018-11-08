@@ -30,7 +30,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
       completionHandler(nil)
       return
     }
-    
+
     let text = invocation.buffer.lines
     
     switch invocation.commandIdentifier {
@@ -72,15 +72,15 @@ extension SourceEditorCommand {
     var importLines = text.objects(at: importIndexes).map { return $0 as! String }
     text.removeObjects(at: importIndexes)
     
-    if self.shouldRemoveDuplicates() {
+    if shouldRemoveDuplicates {
       let linesWithoutDuplicates = NSSet.init(array: importLines)
       importLines = linesWithoutDuplicates.allObjects as! [String]
     }
     
     var sortedLines = importLines.sorted { return $0 < $1 }
-    
+
     // Own header to top logic
-    if !self.isSwiftFile && self.shouldPutOwnHeaderOnTop() {
+    if !self.isSwiftFile && shouldPutOwnHeaderOnTop {
       if let className = self.getFileClass(in: text.copy() as! NSArray) {
         let classExtractionRegex = "(?<=.\").*(?=\\.h\")"
         for (index, line) in sortedLines.enumerated() {
@@ -99,7 +99,7 @@ extension SourceEditorCommand {
       }
     }
     
-    if self.shouldSeparateFrameworks() {
+    if shouldSeparateFrameworks {
       for (index, line) in sortedLines.enumerated() {
         if line.hasPrefix(importCommandObjc) && line.contains("<") {
           sortedLines.insert("\n", at: index)
@@ -107,7 +107,26 @@ extension SourceEditorCommand {
         }
       }
     }
-    
+
+    if shouldPutFrameworksAboveHeaders {
+      var headers = [String]()
+      var frameworks = [String]()
+
+      for line in sortedLines {
+        if line.contains("<") && line.contains(">") {
+          frameworks.append(line)
+        } else if line.contains("#import") {
+          headers.append(line)
+        }
+      }
+
+      sortedLines = frameworks
+      if shouldSeparateFrameworks {
+        sortedLines += [""]
+      }
+      sortedLines += headers
+    }
+
     let firstImportIndex = importIndexes.first!
     let importsRange = Range(uncheckedBounds: (lower: firstImportIndex, upper: firstImportIndex + sortedLines.count))
     
@@ -118,15 +137,19 @@ extension SourceEditorCommand {
   }
   
   // MARK: Auxiliary methods
-  private func shouldPutOwnHeaderOnTop() -> Bool {
+  private var shouldPutFrameworksAboveHeaders: Bool {
+    return !self.settings.bool(forKey: Constants.settings.frameworksAboveHeaders)
+  }
+
+  private var shouldPutOwnHeaderOnTop: Bool {
     return !self.settings.bool(forKey: Constants.settings.ignoreOwnHeader)
   }
   
-  private func shouldSeparateFrameworks() -> Bool {
+  private var shouldSeparateFrameworks: Bool {
     return !self.settings.bool(forKey: Constants.settings.ignoreFrameworks)
   }
   
-  private func shouldRemoveDuplicates() -> Bool {
+  private var shouldRemoveDuplicates: Bool {
     return !self.settings.bool(forKey: Constants.settings.ignoreDuplicates)
   }
   

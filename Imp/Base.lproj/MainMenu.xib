@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -58,6 +58,7 @@
         </menu>
         <viewController id="ygd-ZH-cXh" customClass="SettingsViewController" customModule="Imp" customModuleProvider="target">
             <connections>
+                <outlet property="frameworksAboveCheckbox" destination="dfv-S5-mZh" id="9lp-tS-ZwQ"/>
                 <outlet property="ownHeaderCheckbox" destination="xwS-oj-HWC" id="e6x-dc-WnT"/>
                 <outlet property="removeDuplicatesCheckbox" destination="UhQ-Kj-KWF" id="9w3-I8-DZU"/>
                 <outlet property="separatedFrameworksCheckbox" destination="Umd-Kj-Tep" id="2fR-ea-56Y"/>
@@ -67,14 +68,14 @@
         <window title="Imp" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="265" height="134"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="contentRect" x="335" y="390" width="265" height="158"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ" userLabel="Settings View">
-                <rect key="frame" x="0.0" y="0.0" width="265" height="134"/>
+                <rect key="frame" x="0.0" y="0.0" width="265" height="158"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAx-TD-KzV">
-                        <rect key="frame" x="18" y="90" width="207" height="24"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hAx-TD-KzV">
+                        <rect key="frame" x="18" y="114" width="207" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="😈 Hi, human!" id="xO4-as-Yyh">
                             <font key="font" metaFont="systemBold" size="18"/>
@@ -83,7 +84,7 @@
                         </textFieldCell>
                     </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwS-oj-HWC">
-                        <rect key="frame" x="18" y="62" width="207" height="22"/>
+                        <rect key="frame" x="18" y="86" width="207" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Own header on top" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eMo-it-sGM">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -94,7 +95,7 @@
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UhQ-Kj-KWF">
-                        <rect key="frame" x="18" y="18" width="229" height="18"/>
+                        <rect key="frame" x="18" y="42" width="229" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Remove duplicates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="S1Z-Kh-TGq">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -102,7 +103,7 @@
                         </buttonCell>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Umd-Kj-Tep">
-                        <rect key="frame" x="18" y="42" width="229" height="18"/>
+                        <rect key="frame" x="18" y="66" width="229" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Separate frameworks" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="4pK-dy-Gm0">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -112,9 +113,20 @@
                             <action selector="checkboxClicked:" target="ygd-ZH-cXh" id="mIH-3I-gKN"/>
                         </connections>
                     </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-S5-mZh">
+                        <rect key="frame" x="18" y="18" width="207" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Frameworks above headers" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dUT-vW-WGU">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="checkboxClicked:" target="ygd-ZH-cXh" id="m7N-uc-BJa"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="24.5" y="-209"/>
+            <point key="canvasLocation" x="24.5" y="-197"/>
         </window>
     </objects>
 </document>
